@@ -1,0 +1,177 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="JobSite.Main" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>JOB SITE</title>
+
+ 
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <script src="Scripts/jquery-3.1.1.min.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+
+
+        <style>
+            .head
+            {
+                font-size:30px;
+                text-align:center;
+            }
+            .font
+            {
+                font-size:20px;
+            }
+            .file-upload 
+            {
+                display: inline-block;
+                overflow: hidden;
+                text-align: center;
+                vertical-align: middle;
+                font-family: Arial;
+                border: 1px solid #124d77;
+                border-radius: 6px;
+                -moz-border-radius: 6px;
+                cursor: pointer;
+                text-shadow: #000 1px 1px 2px;
+                -webkit-border-radius: 6px;
+            }
+        </style>
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+        <table class="table table-bordered " >
+            <tr>
+                <td class=" align-middle alert-dark font-weight-bolder head" >S. JOB PORTAL</td>
+                <td class="font-weight-bold"><strong>
+                    <asp:LoginName ID="LoginName1" runat="server" CssClass="auto-style10" FormatString="Welcome {0}" />
+                    <br />
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                    </strong></td>
+            </tr>
+            <tr >
+                <td >
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td >
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <table class="table table-borderless table-hover table-striped ">
+                                <tr>
+                                    <td >
+                                        <asp:HyperLink ID="HOME" runat="server" NavigateUrl="~/default.aspx">HOME</asp:HyperLink>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <asp:HyperLink ID="REG" runat="server" NavigateUrl="~/Register.aspx">REGISTER</asp:HyperLink>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <asp:HyperLink ID="Login" runat="server" NavigateUrl="~/Login.aspx">LOGIN</asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <table >
+                                <tr>
+                                    <td>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/default.aspx">Home</asp:HyperLink>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:HyperLink ID="HyperLink2" runat="server">Myprofile</asp:HyperLink>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <asp:HyperLink ID="HyperLink3" runat="server">Change Password</asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Company">
+                                <ContentTemplate>
+                                    <table class="table table-borderless table-hover table-striped ">
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/PostJob.aspx">Post Job</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/EditJob.aspx">Edit Job</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/ViewApplication.aspx">View Application</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/SearchJS.aspx">Search JobSeeker</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="JobSeeker">
+                                <ContentTemplate>
+                                    <table class="table table-borderless table-hover table-striped ">
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/SJob.aspx">SearchJob</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Details.aspx">Personal Details</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="default.aspx">HOME</a></td>
+                                        </tr>
+                                    </table>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                            <asp:RoleGroup Roles="Admin">
+                                <ContentTemplate>
+                                    <table class="table table-borderless table-hover table-striped " >
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/TotalEmp.aspx">Total Employer</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/PostedJob.aspx">All PostedJob</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/TotalJS.aspx">Total JobSeker</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                </td>
+            </tr>
+            <tr>
+                <td class="alert-dark" colspan="2">Copyright &copy 2019-20</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
