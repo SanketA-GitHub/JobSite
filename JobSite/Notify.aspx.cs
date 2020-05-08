@@ -30,8 +30,8 @@ namespace JobSite
         protected void Btn1_Click(object sender, EventArgs e)
         {
  
-            string to = "sambalkar.ecti@gmail.com"; //To address    
-            string from = "projecttesting1999@gmail.com"; //From address    
+            string to = "To email"; //To address    
+            string from = "From email"; //From address    
             MailMessage message = new MailMessage(from, to);
 
            // string mailbody = CKEditorControl1.Text;
@@ -41,7 +41,7 @@ namespace JobSite
             message.IsBodyHtml = true;
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
             System.Net.NetworkCredential basicCredential1 = new
-            System.Net.NetworkCredential("projecttesting1999@gmail.com", "testing@123");
+            System.Net.NetworkCredential("**Your email here**", "**Password**");
             client.EnableSsl = true;
             client.UseDefaultCredentials = false;
             client.Credentials = basicCredential1;
